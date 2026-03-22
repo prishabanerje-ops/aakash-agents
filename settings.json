@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm info:*)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\({k: d.get\\(k\\) for k in [''''name'''',''''description'''',''''bin'''',''''main'''',''''keywords'''']}, indent=2\\)\\)\")",
+      "Bash(npx -y mcp-search-console --help)",
+      "Bash(ls ~/.npm/_npx/*/node_modules/mcp-search-console/README.md)",
+      "Bash(xargs cat:*)",
+      "Read(//private/tmp/**)",
+      "Bash(xargs -I{} cat {}/README.md)",
+      "Bash(npm search:*)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\(''''description'''',''''''''\\)\\); print\\(''''README:''''\\); print\\(d.get\\(''''readme'''',''''''''\\)[:2000]\\)\")",
+      "Bash(npx -y @mikusnuz/gsc-mcp --help)",
+      "Bash(find ~/.npm/_npx -name *.js -path *mikusnuz*)",
+      "Bash(find ~/.npm/_npx -name README* -path *mikusnuz*)",
+      "Bash(find ~/.npm/_npx -name index.js -path *gsc*)",
+      "Bash(find ~/.npm/_npx/50de721984d78f84/node_modules/mcp-server-gsc -name README*)",
+      "WebFetch(domain:www.policybazaar.ae)",
+      "mcp__pagespeed-insights__get_performance_summary",
+      "Bash(curl -sI https://www.policybazaar.ae/health-insurance/)",
+      "Bash(curl -sI https://www.policybazaar.ae/ -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\")",
+      "mcp__pagespeed-insights__get_full_audit",
+      "Bash(lsof -iTCP -sTCP:LISTEN -n -P)"
+    ],
+    "defaultMode": "bypassPermissions"
+  },
+  "effortLevel": "medium",
+  "skipDangerousModePermissionPrompt": true
+}

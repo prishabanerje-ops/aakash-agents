@@ -1,0 +1,11 @@
+config.json
+history.jsonl
+sessions/
+session-env/
+cache/
+paste-cache/
+shell-snapshots/
+file-history/
+mcp-needs-auth-cache.json
+backups/
+downloads/
