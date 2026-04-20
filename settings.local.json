@@ -49,7 +49,34 @@
       "Bash(python3 -c \"import openpyxl; print\\(''openpyxl available''\\)\")",
       "Bash(pip3 install:*)",
       "Bash(python3 -c \"import docx; print\\(''docx available''\\)\")",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Edit(/.claude/skills/seo-technical-audit/**)",
+      "Edit(/.claude/skills/seo-full-check/**)",
+      "Bash('/Applications/Screaming Frog SEO Spider.app/Contents/MacOS/ScreamingFrogSEOSpiderLauncher' --list-crawls)",
+      "Bash(tee /tmp/sf_crawl_list.txt)",
+      "Bash('/Applications/Screaming Frog SEO Spider.app/Contents/MacOS/ScreamingFrogSEOSpiderLauncher' --headless --list-crawls)",
+      "Bash(tee /tmp/sf_crawl_list2.txt)",
+      "Read(//tmp/**)",
+      "Edit(/.claude/skills/full-check/**)",
+      "Bash('/Applications/Screaming Frog SEO Spider.app/Contents/MacOS/ScreamingFrogSEOSpiderLauncher' --load-crawl Aakash --headless --output-folder ./seo-audit-output/Aakash_20260401_124056 --export-format csv --export-tabs 'Internal:All,Canonicals:All,Redirects:All,Page Titles:All,H1:All,Structured Data:All' --bulk-export 'All Redirect Chains,Canonical Errors' --save-report 'Redirect Chains,Canonical Errors,Page Titles,H1')",
+      "Bash('/Applications/Screaming Frog SEO Spider.app/Contents/MacOS/ScreamingFrogSEOSpiderLauncher' --load-crawl Aakash --headless --output-folder ./seo-audit-output/Aakash_20260401_124129 --export-format csv --export-tabs 'Internal:All,Canonicals:All,Redirects:All,Page Titles:All,H1:All,Structured Data:All' --bulk-export 'All Redirect Chains,Canonical Errors' --save-report 'Redirect Chains,Canonical Errors,Page Titles,H1')",
+      "Bash(tee /tmp/sf_load_aakash.txt)",
+      "Bash(echo \"SF started in background, PID=$!\")",
+      "Bash('/Applications/Screaming Frog SEO Spider.app/Contents/MacOS/ScreamingFrogSEOSpiderLauncher' --load-crawl Aakash --headless --output-folder /Users/a39326/seo-audit-output/Aakash_20260401_124129 --export-format csv --export-tabs 'Internal:All,Canonicals:All,Redirects:All,Page Titles:All,H1:All,Structured Data:All' --bulk-export 'All Redirect Chains,Canonical Errors' --save-report 'Redirect Chains,Canonical Errors,Page Titles,H1')",
+      "Bash(tee /tmp/sf_load_aakash2.txt)",
+      "Bash(echo \"SF PID=$!\")",
+      "Bash('/Applications/Screaming Frog SEO Spider.app/Contents/MacOS/ScreamingFrogSEOSpiderLauncher' --version)",
+      "Bash(echo \"SF PID=$! — exporting 133K URL crawl, this will take a few minutes...\")",
+      "Bash(head -5 ls ~/credentials*.json python3 -c \"import googleapiclient\")",
+      "mcp__claude_ai_Slack__slack_post_message",
+      "Bash(ls ~/credentials*.json)",
+      "mcp__claude_ai_Figma__get_design_context"
+    ],
+    "additionalDirectories": [
+      "/Users/a39326/.claude/skills",
+      "/Users/a39326/.claude/skills/seo-technical-audit",
+      "/Users/a39326/.claude/skills/seo-full-check",
+      "/tmp"
     ]
   }
 }
