@@ -94,12 +94,12 @@ Total                |   XXX,XXX |   XXX,XXX |   XXX,XXX |   XXX,XXX |   XXX,XXX
 
 Avg Organic Position (India)
 
-Project              | 1–X Mon   | 1–X PrevM | PrevM Full| Mon-2 Full
----------------------|-----------|-----------|-----------|----------
-Cars24 – New Cars    |      XX.X |      XX.X |      XX.X |      XX.X
-Bikes24              |      XX.X |      XX.X |      XX.X |      XX.X
-TeamBHP New Cars     |      XX.X |      XX.X |      XX.X |      XX.X
-TeamBHP New Bikes    |      XX.X |      XX.X |      XX.X |      XX.X
+Project              | 1–X Mon   | 1–X PrevM | PrevM Full| Mon-2 Full| Mon-3 Full
+---------------------|-----------|-----------|-----------|-----------|----------
+Cars24 – New Cars    |      XX.X |      XX.X |      XX.X |      XX.X |      XX.X
+Bikes24              |      XX.X |      XX.X |      XX.X |      XX.X |      XX.X
+TeamBHP New Cars     |      XX.X |      XX.X |      XX.X |      XX.X |      XX.X
+TeamBHP New Bikes    |      XX.X |      XX.X |      XX.X |      XX.X |      XX.X
 
 
 Content Pieces Shipped
@@ -118,9 +118,9 @@ Rules:
 - Calculate the Total row as sum of all 4 projects
 - For Content Pieces Shipped, use these values:
   - Current month = user-provided count
+  - Mar (hardcoded) = 138
   - Feb (hardcoded) = 104
   - Jan (hardcoded) = 160
-  - Dec (hardcoded) = 89
 
 ### Step 6 — Write SEO Performance Report Card
 

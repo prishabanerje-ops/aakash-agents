@@ -1,0 +1,55 @@
+{
+  "version": 2,
+  "plugins": {
+    "code-review@claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/a39326/.claude/plugins/cache/claude-code-plugins/code-review/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-04-12T18:27:47.626Z",
+        "lastUpdated": "2026-04-12T18:27:47.626Z",
+        "gitCommitSha": "9772e13f820002c9730af67a2409702799c7ddc6"
+      }
+    ],
+    "security-guidance@claude-code-plugins": [
+      {
+        "scope": "local",
+        "projectPath": "/Users/a39326/Documents/Aakash",
+        "installPath": "/Users/a39326/.claude/plugins/cache/claude-code-plugins/security-guidance/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-04-12T18:29:18.582Z",
+        "lastUpdated": "2026-04-12T18:29:18.582Z",
+        "gitCommitSha": "9772e13f820002c9730af67a2409702799c7ddc6"
+      }
+    ],
+    "superpowers@superpowers-dev": [
+      {
+        "scope": "user",
+        "installPath": "/Users/a39326/.claude/plugins/cache/superpowers-dev/superpowers/5.0.7",
+        "version": "5.0.7",
+        "installedAt": "2026-04-12T18:31:11.638Z",
+        "lastUpdated": "2026-04-12T18:31:11.638Z",
+        "gitCommitSha": "917e5f53b16b115b70a3a355ed5f4993b9f8b73d"
+      },
+      {
+        "scope": "local",
+        "projectPath": "/Users/a39326/Documents/Aakash",
+        "installPath": "/Users/a39326/.claude/plugins/cache/superpowers-dev/superpowers/5.0.7",
+        "version": "5.0.7",
+        "installedAt": "2026-04-12T18:32:25.141Z",
+        "lastUpdated": "2026-04-12T18:32:25.141Z",
+        "gitCommitSha": "917e5f53b16b115b70a3a355ed5f4993b9f8b73d"
+      }
+    ],
+    "frontend-design@claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/a39326/.claude/plugins/cache/claude-code-plugins/frontend-design/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-04-12T18:38:28.727Z",
+        "lastUpdated": "2026-04-12T18:38:28.727Z",
+        "gitCommitSha": "9772e13f820002c9730af67a2409702799c7ddc6"
+      }
+    ]
+  }
+}

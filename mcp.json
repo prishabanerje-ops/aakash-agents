@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "google-ads": {
+      "command": "npx",
+      "args": ["-y", "mcp-google-ads"],
+      "env": {
+        "GOOGLE_ADS_DEVELOPER_TOKEN": "S_1d9tczy42qmqWLILyV-A",
+        "GOOGLE_ADS_CLIENT_ID": "373755137130-ef65bf1vv7do0tgj6e740n611uh1qapj.apps.googleusercontent.com",
+        "GOOGLE_ADS_CLIENT_SECRET": "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",
+        "GOOGLE_ADS_REFRESH_TOKEN": "1//0g2ji2W-JPlurCgYIARAAGBASNwF-L9IrdeqWHG9oVuX3Y0TREoxitT_eQ69d4ELvRXDQ9cL1Mbg5MBDyP_hiMmSpGEOBTpz6i6M"
+      }
+    }
+  }
+}

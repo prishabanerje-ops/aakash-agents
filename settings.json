@@ -1,6 +1,16 @@
 {
   "permissions": {
     "allow": [
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "mcp__claude_ai_Slack__*",
+      "mcp__screaming-frog__*",
+      "mcp__pagespeed__*",
+      "mcp__gsc__*",
       "Bash(npm info:*)",
       "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\({k: d.get\\(k\\) for k in [''''name'''',''''description'''',''''bin'''',''''main'''',''''keywords'''']}, indent=2\\)\\)\")",
       "Bash(npx -y mcp-search-console --help)",
@@ -15,15 +25,61 @@
       "Bash(find ~/.npm/_npx -name README* -path *mikusnuz*)",
       "Bash(find ~/.npm/_npx -name index.js -path *gsc*)",
       "Bash(find ~/.npm/_npx/50de721984d78f84/node_modules/mcp-server-gsc -name README*)",
-      "WebFetch(domain:www.policybazaar.ae)",
       "mcp__pagespeed-insights__get_performance_summary",
-      "Bash(curl -sI https://www.policybazaar.ae/health-insurance/)",
-      "Bash(curl -sI https://www.policybazaar.ae/ -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\")",
       "mcp__pagespeed-insights__get_full_audit",
-      "Bash(lsof -iTCP -sTCP:LISTEN -n -P)"
+      "Bash(lsof -iTCP -sTCP:LISTEN -n -P)",
+      "Bash(ls ~/.ssh/*.pub)",
+      "Bash(ssh -T git@github.com)",
+      "Read(//Users/a39326/my-app/**)",
+      "Bash(grep -r \"subagent\\\\|agent\" /Users/a39326/my-app/app --include=*.ts --include=*.tsx -l)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\(''''summary'''',''''''''\\) or d.get\\(''''title'''',''''''''\\) or str\\(d\\)[:200]\\)\")",
+      "Bash(done)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\(''''scripts'''',{}\\)\\)\")",
+      "WebFetch(domain:www.cars24.com)",
+      "Bash(curl -sI https://www.cars24.com/new-cars/mahindra/)",
+      "WebFetch(domain:www.cars24.com.au)",
+      "Bash(*ScreamingFrogSEOSpiderLauncher*)",
+      "Bash(*screamingfrogseospider*)",
+      "Bash(python3*)",
+      "Bash(curl -s *)",
+      "Bash(curl -sI *)",
+      "Bash(mkdir -p *)",
+      "Bash(mkdir *)",
+      "Bash(cat *)",
+      "Bash(tee *)",
+      "Bash(tail *)",
+      "Bash(sleep *)",
+      "Bash(wc -l*)",
+      "Bash(ls *seo-audit*)",
+      "Bash(grep *)",
+      "Write(/Users/a39326/seo-audit-output/**)"
     ],
-    "defaultMode": "bypassPermissions"
+    "defaultMode": "bypassPermissions",
+    "additionalDirectories": [
+      "/Users/a39326/.claude/projects/-Users-a39326/memory",
+      "/Users/a39326/.claude/projects/-Users-a39326-my-app/7f67e2ea-d3e9-4add-98ee-20a97d64c7f1/subagents"
+    ]
+  },
+  "enabledPlugins": {
+    "code-review@claude-code-plugins": true,
+    "superpowers@superpowers-dev": true,
+    "frontend-design@claude-code-plugins": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-code"
+      }
+    },
+    "superpowers-dev": {
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers"
+      }
+    }
   },
   "effortLevel": "medium",
+  "autoMemoryDirectory": "/Users/a39326/Documents/Aakash/memory",
   "skipDangerousModePermissionPrompt": true
 }

@@ -1,6 +1,8 @@
 ---
 name: seo-geo
 description: GEO and AI search specialist. Analyzes AI crawler accessibility, llms.txt compliance, passage-level citability, brand mention signals, and platform-specific optimization for Google AI Overviews, ChatGPT, Perplexity, and Bing Copilot.
+model: sonnet
+maxTurns: 20
 tools: Read, Bash, WebFetch, Glob, Grep
 ---
 
@@ -45,7 +47,7 @@ Optional block (training only): CCBot, anthropic-ai, cohere-ai
 | Wikipedia entity | High |
 | Domain Rating (backlinks) | ~0.266 (weak) |
 
-Only 11% of domains are cited by both ChatGPT and Google AI Overviews — platform optimization matters.
+Only 11% of domains are cited by both ChatGPT and Google AI Overviews, so platform optimization matters.
 
 ## DataForSEO Integration (Optional)
 

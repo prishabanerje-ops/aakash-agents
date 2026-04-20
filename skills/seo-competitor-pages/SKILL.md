@@ -4,110 +4,218 @@ description: >
   Generate SEO-optimized competitor comparison and alternatives pages. Covers
   "X vs Y" layouts, "alternatives to X" pages, feature matrices, schema markup,
   and conversion optimization. Use when user says "comparison page", "vs page",
-  "alternatives page", "competitor comparison", or "X vs Y".
+  "alternatives page", "competitor comparison", "X vs Y", "versus",
+  "compare competitors", or "alternative to".
+user-invokable: true
+argument-hint: "[url or generate] [competitor]"
+license: MIT
+allowed-tools: Read, Grep, Glob, Bash, WebFetch
+metadata:
+  author: AgriciDaniel
+  version: "1.7.0"
+  category: seo
 ---
 
 # Competitor Comparison & Alternatives Pages
 
+Create high-converting comparison and alternatives pages that target
+competitive intent keywords with accurate, structured content.
+
 ## Page Types
 
-### "X vs Y" Comparison Pages
-- URL pattern: `/[product-a]-vs-[product-b]/`
-- Minimum word count: 1,500
-- Unique content: 80%+
+### 1. "X vs Y" Comparison Pages
+- Direct head-to-head comparison between two products/services
+- Balanced feature-by-feature analysis
+- Clear verdict or recommendation with justification
 - Target keyword: `[Product A] vs [Product B]`
 
-### "Alternatives to X" Pages
-- URL pattern: `/alternatives-to-[product]/` or `/[product]-alternatives/`
-- Minimum word count: 2,000
-- Lists 5-10 alternatives with honest pros/cons
-- Target keyword: `[Product] alternatives`, `best [Product] alternatives`
+### 2. "Alternatives to X" Pages
+- List of alternatives to a specific product/service
+- Each alternative with brief summary, pros/cons, best-for use case
+- Target keyword: `[Product] alternatives`, `best alternatives to [Product]`
 
-## Required Sections
+### 3. "Best [Category] Tools" Roundup Pages
+- Curated list of top tools/services in a category
+- Ranking criteria clearly stated
+- Target keyword: `best [category] tools [year]`, `top [category] software`
 
-### Comparison Page
-1. **Introduction** — who this comparison is for, key decision factors
-2. **Quick comparison table** — side-by-side features, pricing, ratings
-3. **Detailed breakdown** — each key feature compared in depth
-4. **Pricing comparison** — all tiers, free trials, hidden costs
-5. **Pros & cons** — for each product, honest and balanced
-6. **Use case recommendations** — "choose X if...", "choose Y if..."
-7. **Verdict** — clear recommendation with reasoning
-8. **FAQ** — common comparison questions
+### 4. Comparison Table Pages
+- Feature matrix with multiple products in columns
+- Sortable/filterable if interactive
+- Target keyword: `[category] comparison`, `[category] comparison chart`
 
-### Alternatives Page
-1. **Introduction** — why someone might look for alternatives
-2. **Quick comparison table** — all alternatives at a glance
-3. **Each alternative** — dedicated section per product (200-300 words)
-4. **Summary table** — feature/price matrix
-5. **How to choose** — decision framework
-6. **FAQ** — common alternatives questions
+## Comparison Table Generation
 
-## Comparison Table Layout
-
+### Feature Matrix Layout
 ```
-| Feature      | Product A | Product B |
-|--------------|:---------:|:---------:|
-| Price        | $X/mo     | $Y/mo     |
-| Free plan    | ✅        | ❌        |
-| Feature 1    | ✅        | ✅        |
-| Feature 2    | ✅        | ❌        |
-| Rating       | 4.5/5     | 4.2/5     |
+| Feature          | Your Product | Competitor A | Competitor B |
+|------------------|:------------:|:------------:|:------------:|
+| Feature 1        | ✅           | ✅           | ❌           |
+| Feature 2        | ✅           | ⚠️ Partial   | ✅           |
+| Feature 3        | ✅           | ❌           | ❌           |
+| Pricing (from)   | $X/mo        | $Y/mo        | $Z/mo        |
+| Free Tier        | ✅           | ❌           | ✅           |
 ```
 
-## Schema Markup
+### Data Accuracy Requirements
+- All feature claims must be verifiable from public sources
+- Pricing must be current (include "as of [date]" note)
+- Update frequency: review quarterly or when competitors ship major changes
+- Link to source for each competitor data point where possible
 
-### Product Schema (for each product)
+## Schema Markup Recommendations
+
+### Product Schema with AggregateRating
 ```json
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Product Name",
-  "description": "Brief description",
+  "name": "[Product Name]",
+  "description": "[Product Description]",
   "brand": {
     "@type": "Brand",
-    "name": "Brand Name"
+    "name": "[Brand Name]"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.5",
-    "reviewCount": "1000"
+    "ratingValue": "[Rating]",
+    "reviewCount": "[Count]",
+    "bestRating": "5",
+    "worstRating": "1"
   }
+}
+```
+
+### SoftwareApplication (for software comparisons)
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "[Software Name]",
+  "applicationCategory": "[Category]",
+  "operatingSystem": "[OS]",
+  "offers": {
+    "@type": "Offer",
+    "price": "[Price]",
+    "priceCurrency": "USD"
+  }
+}
+```
+
+### ItemList (for roundup pages)
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Best [Category] Tools [Year]",
+  "itemListOrder": "https://schema.org/ItemListOrderDescending",
+  "numberOfItems": "[Count]",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "[Product Name]",
+      "url": "[Product URL]"
+    }
+  ]
 }
 ```
 
 ## Keyword Targeting
 
 ### Comparison Intent Patterns
-| Pattern | Example | Intent |
-|---------|---------|--------|
-| `X vs Y` | "Notion vs Confluence" | Comparison |
-| `X vs Y pricing` | "Slack vs Teams pricing" | Pricing |
-| `X vs Y which is better` | "React vs Vue which is better" | Decision |
-| `X alternatives` | "Jira alternatives" | Switching |
-| `best X alternatives` | "best Salesforce alternatives" | Discovery |
-| `X competitors` | "HubSpot competitors" | Research |
+| Pattern | Example | Search Volume Signal |
+|---------|---------|---------------------|
+| `[A] vs [B]` | "Slack vs Teams" | High |
+| `[A] alternative` | "Figma alternatives" | High |
+| `[A] alternatives [year]` | "Notion alternatives 2026" | High |
+| `best [category] tools` | "best project management tools" | High |
+| `[A] vs [B] for [use case]` | "AWS vs Azure for startups" | Medium |
+| `[A] review [year]` | "Monday.com review 2026" | Medium |
+| `[A] vs [B] pricing` | "HubSpot vs Salesforce pricing" | Medium |
+| `is [A] better than [B]` | "is Notion better than Confluence" | Medium |
 
 ### Title Tag Formulas
-- `[A] vs [B]: Full Comparison (2026) | [Site]`
-- `[A] vs [B]: Pricing, Features & Which to Choose | [Site]`
-- `10 Best [Product] Alternatives in 2026 | [Site]`
+- X vs Y: `[A] vs [B]: [Key Differentiator] ([Year])`
+- Alternatives: `[N] Best [A] Alternatives in [Year] (Free & Paid)`
+- Roundup: `[N] Best [Category] Tools in [Year], Compared & Ranked`
+
+### H1 Patterns
+- Match title tag intent
+- Include primary keyword naturally
+- Keep under 70 characters
+
+## Conversion-Optimized Layouts
+
+### CTA Placement
+- **Above fold**: Brief comparison summary with primary CTA
+- **After comparison table**: "Try [Your Product] free" CTA
+- **Bottom of page**: Final recommendation with CTA
+- Avoid aggressive CTAs in competitor description sections (reduces trust)
+
+### Social Proof Sections
+- Customer testimonials relevant to comparison criteria
+- G2/Capterra/TrustPilot ratings (with source links)
+- Case studies showing migration from competitor
+- "Switched from [Competitor]" stories
+
+### Pricing Highlights
+- Clear pricing comparison table
+- Highlight value advantages (not just lowest price)
+- Include hidden costs (setup fees, per-user pricing, overage charges)
+- Link to full pricing page
+
+### Trust Signals
+- "Last updated [date]" timestamp
+- Author with relevant expertise
+- Methodology disclosure (how comparisons were conducted)
+- Disclosure of own product affiliation
 
 ## Fairness Guidelines
 
-- **Accuracy**: All claims must be verifiable and current
-- **Balance**: Acknowledge your own product's weaknesses if applicable
-- **Cite sources**: Link to official pricing pages
-- **Date stamp**: Include "Last updated: {date}"
-- **No fake reviews**: Don't fabricate ratings or testimonials
+- **Accuracy**: All competitor information must be verifiable from public sources
+- **No defamation**: Never make false or misleading claims about competitors
+- **Cite sources**: Link to competitor websites, review sites, or documentation
+- **Timely updates**: Review and update when competitors release major changes
+- **Disclose affiliation**: Clearly state which product is yours
+- **Balanced presentation**: Acknowledge competitor strengths honestly
+- **Pricing accuracy**: Include "as of [date]" disclaimers on all pricing data
+- **Feature verification**: Test competitor features where possible, cite documentation otherwise
 
-## Conversion Optimization
+## Internal Linking
 
-- CTA placement: after verdict section and at page bottom
-- Social proof: customer quotes, G2/Capterra ratings
-- Trust signals: "updated monthly", data sources cited
-- Internal links: to feature pages, pricing, free trial
+- Link to your own product/service pages from comparison sections
+- Cross-link between related comparison pages (e.g., "A vs B" links to "A vs C")
+- Link to feature-specific pages when discussing individual features
+- Breadcrumb: Home > Comparisons > [This Page]
+- Related comparisons section at bottom of page
+- Link to case studies and testimonials mentioned in the comparison
 
-## DataForSEO Integration (Optional)
+## Output
 
-If DataForSEO MCP tools are available, use `serp_organic_live_advanced` to check current SERP for comparison queries and identify content gaps vs ranking pages.
+### Comparison Page Template
+- `COMPARISON-PAGE.md`: Ready-to-implement page structure with sections
+- Feature matrix table
+- Content outline with word count targets (minimum 1,500 words)
+
+### Schema Markup
+- `comparison-schema.json`: Product/SoftwareApplication/ItemList JSON-LD
+
+### Keyword Strategy
+- Primary and secondary keywords
+- Related long-tail opportunities
+- Content gaps vs existing competitor pages
+
+### Recommendations
+- Content improvements for existing comparison pages
+- New comparison page opportunities
+- Schema markup additions
+- Conversion optimization suggestions
+
+## Error Handling
+
+| Scenario | Action |
+|----------|--------|
+| Competitor URL unreachable | Report which competitor URLs failed. Proceed with available data and note gaps in the comparison. |
+| Insufficient competitor data (pricing, features unavailable) | Flag missing data points clearly. Use "Not publicly available" in comparison tables rather than guessing. |
+| No product/service overlap found | Report that the products serve different markets. Suggest alternative competitors that share feature overlap, or pivot to a category roundup format. |
